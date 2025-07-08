@@ -341,6 +341,7 @@
 }
 .icon-angle-small-down:before {
   content: '\e906';
+  color: #fff;
 }
 .icon-angle-small-left:before {
   content: '\e907';
@@ -350,6 +351,7 @@
 }
 .icon-angle-small-up:before {
   content: '\e909';
+  
 }
 .icon-apps:before {
   content: '\e90a';

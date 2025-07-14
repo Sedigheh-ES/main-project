@@ -438,8 +438,13 @@
   content: '\e922';
 }
 .icon-menu:before {
-  content: '\e923';
+  content: "\e900";
 }
+
+.icon-menu1:before {
+  content: "\e9bd";
+}
+
 .icon-star-empty:before {
   content: '\e924';
   color: #ffb900;

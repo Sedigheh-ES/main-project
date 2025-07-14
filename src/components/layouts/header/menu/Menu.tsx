@@ -11,7 +11,7 @@ export function Menu() {
     return (
         <>
             {/* Brows all category */}
-            <div id="all_categpries" className=" relative w-[250px] h-[44px] bg-[#3BB77E] rounded-[5px] border border-gray-200 flex justify-center items-center gap-2 cursor-pointer">
+            <div id="all_categpries" className="hidden relative w-[250px] h-[50px] bg-[#3BB77E] rounded-[5px] border border-gray-200 lg:flex justify-center items-center gap-2 cursor-pointer">
                 <span className={"flex items-center justify-center gap-x-2"}>
                     <IconBox linkClassName={"text-white font-bold"} icon={'icon-apps'} size={24} link={'#'} hideTitleOnMobile={true} title={"Browse All Categories"} />
                 </span>
@@ -20,7 +20,7 @@ export function Menu() {
                 </span>
 
                 {/* All Categories Menu */}
-                <div id="all_categories_box" className={"bg-white w-[500px] h-[400px] border absolute left-0 top-16 rounded-[10px] border-[#BCE3C9] p-2.5"}>
+                <div id="all_categories_box" className={"hidden lg:hidden bg-white w-[500px] h-auto border absolute left-0 top-16 rounded-[10px] border-[#BCE3C9] p-2.5"}>
                     <div id="all_cat_inner_box" className="flex flex-wrap justify-between gap-y-[15px]">
                     
                         {
@@ -37,7 +37,7 @@ export function Menu() {
             </div>
          
             <nav id="nav-menu">
-                <ul className="flex flex-col lg:flex-row items-start gap-2.5 justify-center font-bold">
+                <ul className="hidden xl:flex flex-col lg:flex-row items-start gap-2.5 justify-center font-bold">
                     {
                         menuMock.map((item, index) => {
                             return (
@@ -59,7 +59,7 @@ export function Menu() {
             </nav>
         
 
-            <div>Phone</div>
+        
         </>
     )
 }

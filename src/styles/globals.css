@@ -1,2 +1,10 @@
 @import "tailwindcss";
 
+
+@layer base{
+    .container{
+        width: full;
+        margin: 0 auto;
+    }
+   
+}

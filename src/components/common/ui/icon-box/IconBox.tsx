@@ -17,7 +17,7 @@ export function IconBox({ icon, size = 22, link, title, hideTitleOnMobile = fals
     span.push(<span className={`path${i}`}></span>)
   }
   return (
-    <Link href={link ?? '#'} className={`flex items-center ${linkClassName}}` }>
+    <Link href={link ?? '#'} className={`flex items-center ${linkClassName}` }>
       {
         badge ?
           <div className="relative">

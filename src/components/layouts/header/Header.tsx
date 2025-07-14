@@ -14,7 +14,7 @@ export function Header() {
 
         
         <ul className="lg:hidden flex gap-5 cursor-pointer">
-          <li className="flex gap-2 cursor-pointer ">
+          <li className="flex gap-2 cursor-pointer">
             <IconBox linkClassName={"flex items-center"} icon={'icon-menu'} size={24} title={''} link={'#'} hideTitleOnMobile={true} titleClassName={"text-gray-500"} />
           </li>
         </ul>
@@ -32,12 +32,12 @@ export function Header() {
 
       </div>
 
-    
+      
       {/* Menu  */}
       <div className="container flex items-center justify-between py-4 border-b border-b-[#E5E5E5]">
 
         {/* search moile */}    
-        <div className="border-2 border-[#3BB77E] rounded-lg max-w-[300px] w-full mx-[15px] px-[15px] lg:hidden inline-block">
+        <div className="border-2  border-[#3BB77E] w-full rounded-lg max-w-[300px] mx-[15px] px-[15px] lg:hidden inline-block">
             <form name="search-form" action="#" className="flex items-center">
                 <input type="text" name="search-text" placeholder="search for items"
                     className="text-sm text-gray-400 w-full py-[15px] focus:outline-none"/>
@@ -46,13 +46,13 @@ export function Header() {
         </div>
 
        
-         <ul className="lg:hidden flex  gap-5 cursor-pointer">         
-          <li className="flex gap-2 cursor-pointer ">
-            <IconBox linkClassName={"flex items-center"} icon={'icon-user'} size={24} title={'Account'} link={'#'} hideTitleOnMobile={true} titleClassName={"text-gray-500"} />
+         <ul className="lg:hidden flex gap-5 cursor-pointer w-full justify-end">         
+          <li className="flex gap-2 cursor-pointer">
+            <IconBox  icon={'icon-user'} size={36} title={'Account'} link={'#'} hideTitleOnMobile={true} titleClassName={"text-gray-500"} />
           </li>
 
           <li className="flex gap-2 cursor-pointer">
-            <IconBox linkClassName={"flex items-center"} icon={'icon-shopping-cart'} size={24} title={'Card'} link={'#'} hideTitleOnMobile={true} badge={2} titleClassName={"text-gray-500"} />
+            <IconBox icon={'icon-shopping-cart'} size={36} title={'Card'} link={'#'} hideTitleOnMobile={true} badge={2} titleClassName={"text-gray-500"} />
           </li>
         </ul>
 

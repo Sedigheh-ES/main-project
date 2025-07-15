@@ -11,11 +11,11 @@ export function Footer() {
 
         <div className="rounded-[6px] p-10 md:rounded-[14px] lg:rounded-[30px] bg-hero-pattern bg-[rgba(59,128,126,.2)] bg-opacity-20 bg-cover bg-top bg-no-repeat flex justify-between items-center my-[38px] relative">
           <div className="min-h-[160px] pl-3 pt-3 sm:pl-4 sm:pt4 md:pl-6 md:pt-6 lg:pl-10 lg:py-10 xl:pl-14 xl:py-14 2xl:py-[72px] 2xl:pl-[72px]">
-            <h2 className="max-w-[50%] font-quickSand text-2xl sm:text-3xl md:text-2xl lg:text-5xl tracking-[-0.04%] text-[#1C4037]">Stay home & get your daily needs from our shop</h2>
+            <h2 className="max-w-[60%] font-quickSand text-2xl sm:text-3xl md:text-2xl lg:text-5xl tracking-[-0.04%] text-[#1C4037]">Stay home & get your daily needs from our shop</h2>
             <div className="font-lato text-2xl tracking-[-0.04%] text-[#2B3D34] mt-8 hidden lg:block">Start Your Daily Sopping with Nest Mart</div>
           </div>
           <ImageView src={"/assets/images/Screenshot (76).png"} width={587} height={331} classname={"absolute bottom-0 right-0 sm:h-full w-[50%] hidden lg:flex "} alt={"Footer Banner"} />
-          <ImageView src={"/assets/images/fresh-apple.png"} width={587} height={331} classname={"absolute bottom-0 right-0 sm:h-full w-[50%] flex lg:hiddeen "} alt={"Footer Banner"} />
+          <ImageView src={"/assets/images/fresh-apple.png"} width={587} height={331} classname={"absolute bottom-0 right-0 sm:h-full w-[50%] flex lg:hidden "} alt={"Footer Banner"} />
         </div>
       </div>
 

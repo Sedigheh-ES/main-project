@@ -1,19 +1,24 @@
 import Section from "@/components/section/Section";
 import Banner from "@/components/common/ui/banner/Banner";
 import FeaturedCategories from "@/components/homePage/featured-categories/FeaturedCategories";
+import MiniProductSlider from "@/components/homePage/mini-product-slider/MiniProductSlider";
 
 export default function Home() {
   return (
     <>
       <Section>
-<Banner />
+        <Banner />
       </Section>
 
       <Section>
         <div>
           <h2 className="text-4xl text-[#253D4E] font-quickSand "> Featured Categories</h2>
         </div>
-        <FeaturedCategories/>
+        <FeaturedCategories />
+      </Section>
+
+      <Section>
+        <MiniProductSlider />
       </Section>
     </>
   );

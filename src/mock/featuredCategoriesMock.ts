@@ -71,12 +71,9 @@ export const featuredCategoriesMock = [
               items: '33',
          hoverColor:'#c0ff68'
     },
-           {
-        title: 'Oranges',
-        img: '/assets/images/featured/oranges.png',
-        link: '/',
-        color: '#FFF3FF',
-               items: '63',
-         hoverColor:'#ff67ff'
-    },
+         
+         
+         
+          
+           
 ]

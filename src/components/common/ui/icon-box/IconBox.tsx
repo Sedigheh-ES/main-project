@@ -20,7 +20,7 @@ export function IconBox({ icon, size = 22, link, title, hideTitleOnMobile = fals
 
   if (Link) {
     return (
-      <Link href={link ?? '#'} className={`flex items-center ${linkClassName}`}>
+      <div href={link ?? '#'} className={`flex items-center ${linkClassName}`}>
         {
           badge ?
             <div className="relative">
@@ -33,7 +33,7 @@ export function IconBox({ icon, size = 22, link, title, hideTitleOnMobile = fals
             <i className={`${icon} text-[${size}px]`}>{span}</i>
         }
         {title && <div className={`${hideTitleOnMobile ? 'hidden xl:inline-block' : 'inline-block'} ${titleClassName}`} > {title}</div>}
-      </Link>
+      </div>
     );
   } else {
     return (

@@ -3,7 +3,7 @@ export const popularProducts = [
         title: "Seeds of Change Organic Quinoa, Brown, & Red Rice",
         image: "/assets/images/18 1.png",
         categorty: "Hodo Foods",
-        rate: 4.0,
+        rate: (4.0),
         weight: 500,
         unit: "gram",
         price:3000 ,
@@ -37,7 +37,7 @@ export const popularProducts = [
     },
     
        {
-        title: "Foster Farms Takeout Crispy Classic Buffalo Wings",
+        title: "Foster Farms Takeout Crispy Classic",
         image: "/assets/images/5 7.png",
         categorty: "Hodo Foods",
         rate: 4.0,

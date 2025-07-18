@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 interface Props { }
 
-export default function SimpleProductCard({ }: Props) {
+export default function BestSeller({ }: Props) {
     return (
         <Swiper
             spaceBetween={20}
@@ -24,7 +24,7 @@ export default function SimpleProductCard({ }: Props) {
                         spaceBetween: 22
                     },
                     1280: {
-                        slidesPerView: 5,
+                        slidesPerView: 4,
                         spaceBetween: 24
                     }
                 }
@@ -34,8 +34,9 @@ export default function SimpleProductCard({ }: Props) {
             {
                 popularProducts.map((item, index) => {
                     return (
+            
                         <SwiperSlide key={index}>
-                            <div className="group border-[1px] border-gray-200 hover:border-green-150 rounded-[10px] hover:shadow-[20px_20px_40px_0_rgba(24,24,24,0.07)] relative p-3 md:p-4 xl:px-5 xl:pb-5 lg:pt-[65px] h-full mt-[50px]">
+                            <div className=" group border-[1px] border-gray-200 hover:border-green-150 rounded-[10px] hover:shadow-[20px_20px_40px_0_rgba(24,24,24,0.07)] relative p-3 md:p-4 xl:px-5 xl:pb-5 lg:pt-[65px] h-full mt-[50px] ml-[24px]">
                                 <div className="flex items-center justify-center" >
                                     <ImageView src={item.image} width={210} height={168} alt={"product image"} classname="m-auto w-full aspect-[3/2] mb-[28px]" />
                                 </div>
@@ -51,7 +52,7 @@ export default function SimpleProductCard({ }: Props) {
                                             <li> <IconBox icon={"icon-star-full text-[12px]"} size={24} /> </li>
                                             <li> <IconBox icon={"icon-star-empty text-[12px]"} size={24} /> </li>
                                         </ul>
-                                        <div>({item.rate})</div>
+                                        <div>{item.rate}</div>
                                     </div>
                                     <div className="text-[#7E7E7E] text-xs">{item.weight} gram</div>
                                 </div>
@@ -66,5 +67,4 @@ export default function SimpleProductCard({ }: Props) {
             }
         </Swiper>
     );
-
 };

@@ -1,4 +1,5 @@
 import { IconBox, ImageView } from "@/components/common";
+import ProductDealsCard from "@/components/common/product/deals-of-the-day-card/ProductDealsCard";
 import { popularProducts } from "@/mock/popularProducts";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -48,7 +49,7 @@ export default function DealsOftheDaySlider({ sliderData, nextEl, prevEl }: Prop
                     return (
                         <SwiperSlide key={index}>
 
-                          
+                            <ProductDealsCard data={sliderData} />
 
                         </SwiperSlide>
                     )

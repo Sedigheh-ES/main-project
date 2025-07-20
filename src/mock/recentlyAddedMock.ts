@@ -1,21 +1,21 @@
-export const TrendingProductsMock = [
+export const RecentlyAddedMock = [
     {
         title : "Nestle Original Coffee-Mate Coffee Creamer",
-        image: "/assets/images/products/pomegranate.png",
+        image: "/assets/images/products/mango-juice.png",
         rate: 3,
-        price: 900,
+        price: 240,
     },
     {
         title : "Nestle Original Coffee-Mate Coffee Creamer",
-        image: "/assets/images/products/bread.png",
+        image: "/assets/images/products/watter-melon.png",
         rate: 4.0,
-        price: 300,
+        price: 1999,
         sale_price: 298,
     },
     {
         title : "Nestle Original Coffee-Mate Coffee Creamer",
-        image: "/assets/images/products/baby-corn.png",
-        rate: 5,
+        image: "/assets/images/products/mango-packet.png",
+        rate: 1,
         price: 188,
     }
 ]

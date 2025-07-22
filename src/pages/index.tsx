@@ -11,6 +11,9 @@ import { popularProducts } from "@/mock/popularProducts";
 import { popularFruits } from "@/mock/popularFruits";
 import { DealsOfTheDaysMock } from "@/mock/dealsOftheDayMock";
 import DealsOftheDaySlider from "@/components/homePage/deals-of-the-day/DealsOfTheDaySlider";
+import BottomSlider from "@/components/homePage/bottom-slider/BottomSlider";
+import { RecentlyAddedMock } from "@/mock/recentlyAddedMock";
+import { bestseller } from "@/mock/bestseller";
 
 interface Props{
 data:{}
@@ -52,7 +55,7 @@ export default function Home({data}:Props) {
             <i className="swiper-nav-right2 icon-angle-small-right cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-[#3BB77E] hover:text-white text-[24px]"></i>
           </div>
           </div>
-        <SimpleProductSlider sliderData={popularFruits} nextEl={".swiper-nav-right2"} prevEl={".swiper-nav-left2"} sliderData={popularFruits} />
+        <SimpleProductSlider sliderData={popularFruits} nextEl={".swiper-nav-right2"} prevEl={".swiper-nav-left2"} />
       </Section>
 
       <Section>
@@ -67,7 +70,7 @@ export default function Home({data}:Props) {
               <IconBox icon={"icon-arrow-small-right "} size={24} />
             </Link>
           </div>
-          <BestSeller />
+          <BestSeller sliderData={bestseller} />
         </div>
 
       </Section>
@@ -81,6 +84,10 @@ export default function Home({data}:Props) {
           </Link>
         </div>
         <DealsOftheDaySlider sliderData={DealsOfTheDaysMock} />
+      </Section>
+
+      <Section>
+        <BottomSlider />
       </Section>
 
     </>

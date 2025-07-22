@@ -14,8 +14,8 @@ interface Props {
 export default function SimpleProductSlider({sliderData,nextEl,prevEl}: Props) {
   return (
     <Swiper
-      spaceBetween={20}
-      slidesPerView={1}
+      spaceBetween={16}
+      slidesPerView={2}
       autoplay={true}
       modules={[Autoplay, Navigation]}
             navigation={{
@@ -35,7 +35,7 @@ export default function SimpleProductSlider({sliderData,nextEl,prevEl}: Props) {
             spaceBetween: 22
           },
           1280: {
-            slidesPerView: 1,
+            slidesPerView: 5,
             spaceBetween: 24
           }
         }
@@ -47,7 +47,7 @@ export default function SimpleProductSlider({sliderData,nextEl,prevEl}: Props) {
                 sliderData.map((slideData, index) => {
                     return (
                         <SwiperSlide key={index}>
-                           
+               
                         <SimpleProductCard data={slideData} />
 
                         </SwiperSlide>

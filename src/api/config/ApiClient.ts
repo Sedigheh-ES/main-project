@@ -3,12 +3,12 @@ import { toast } from "react-toastify";
 
 
 const apiClient = axios.create({
-    baseURL: 'https://nest.navaxcollege.com/api/',
+    baseURL: 'https://nest.navaxcollege.com/api',
     timeout:120000
 })
 
 apiClient.interceptors.response.use(function (response) {
-    return response;
+    return response.data;
 }, function (error) {
     if (error.response) {
         if (error.response.status === 404) {

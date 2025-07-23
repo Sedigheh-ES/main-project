@@ -1,6 +1,8 @@
+import { getMenuAPiCall } from "@/api/menu";
 import { IconBox } from "@/components/common";
 import { browseCategroiesMock } from "@/mock/browsCateegory";
 import { menuMock } from "@/mock/menu";
+import { useQuery } from "@tanstack/react-query";
 import Link from "next/link";
 
 
@@ -8,6 +10,8 @@ import Link from "next/link";
 
 export function Menu() {
     //TODO Load menu data from API
+    const { data: menuData } = useQuery({ queryKey: [getMenuAPiCall.name], queryFn: () => getMenuAPiCall() });
+    console.log('Menu Data: ',menuData);
     return (
         <>
             {/* Brows all category */}

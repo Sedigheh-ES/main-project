@@ -113,7 +113,7 @@ export function Menu() {
                         href={item.attributes.link}
                         className={"flex items-center gap-1"}
                       >
-                        {" "}
+                        
                         {item.attributes.title}
                       </Link>
                     )}

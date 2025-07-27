@@ -2,9 +2,11 @@ import { IconBox, ImageView, Logo } from "@/components/common";
 import { SearchForm } from "./searchform";
 import Link from "next/link";
 import { Menu } from "./menu";
+import { useState } from "react";
 
 
 export function Header() {
+  const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
   return (
     <header className="flex flex-col justify-center items-center mb-[33px]">
       <div className=" container flex items-center justify-between py-4 border-b border-b-[#E5E5E5]">
@@ -62,12 +64,12 @@ export function Header() {
           <IconBox icon={"icon-headset xl:text-[30px] aspect-square"} size={24} link={'#'} />
 
           <div>
-            <Link href="#" className="text-green-300 lg:text-4xl xl:text-3xl ">
+            <Link href="#" className="text-[#3BB77E] lg:text-2xl ">
               1900-8888
             </Link>
 
-            <div className="font-medium text-sm ">
-              <span className="hidden xl:inline-block" >24/7</span>Support Center
+            <div className="font-medium text-xs text-[#7E7E7E] flex items-center justify-center">
+              <span className="hidden xl:inline-block">24/7</span>Support Center
             </div>
 
           </div>

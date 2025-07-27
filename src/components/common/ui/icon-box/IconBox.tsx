@@ -49,7 +49,7 @@ export function IconBox({ icon, size = 22, link, title, hideTitleOnMobile = fals
             :
             <i className={`${icon} text-[${size}px]`}>{span}</i>
         }
-        {title && <div className={`${hideTitleOnMobile ? 'hidden xl:inline-block' : 'inline-block'} ${titleClassName}`} > {title}</div>}
+        {title && <div className={`${hideTitleOnMobile ? 'hidden lg:inline-block' : 'inline-block'} ${titleClassName}`} > {title}</div>}
       </>
     )
 

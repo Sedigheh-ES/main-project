@@ -10,32 +10,31 @@ export function Menu() {
   const { data: mainMenuItems } = useMenu({ position: "main_menu" });
   const { data: categoryMenuItems } = useMenu({ position: "brows-category" });
 
-    const categoryMenuClickHandler = (e) => {
-        e.stopPropagation();
+  const categoryMenuClickHandler = (e) => {
+    e.stopPropagation();
     setShowCategoryMenu((prevState) => !prevState);
   };
 
-    const categoryBodyClickHandler = () => {
-     
- }
+  const categoryBodyClickHandler = () => {};
 
-    useEffect(() => {
-        const clickHandler= ()=>{ setShowCategoryMenu(false)}
-        document.addEventListener('click', (clickHandler) => {
-            setShowCategoryMenu(false)
-        })
-        return () => {
-            document.removeEventListener('click',clickHandler)
-        }
-    }, []);
+  useEffect(() => {
+    const clickHandler = () => {
+      setShowCategoryMenu(false);
+    };
+    document.addEventListener("click", (clickHandler) => {
+      setShowCategoryMenu(false);
+    });
+    return () => {
+      document.removeEventListener("click", clickHandler);
+    };
+  }, []);
 
   return (
     <>
-          {/* Brows all category */}
-          
-          <div className={'relative'} onClick={categoryMenuClickHandler}>
-          <div className="hidden relative w-[250px] h-[50px] bg-[#3BB77E] rounded-[5px] border border-gray-200 lg:flex justify-center items-center gap-2 cursor-pointer ">
-                 
+      {/* Brows all category */}
+
+      <div className={"relative"} onClick={categoryMenuClickHandler}>
+        <div className="hidden relative w-[250px] h-[50px] bg-[#3BB77E] rounded-[5px] border border-gray-200 lg:flex justify-center items-center gap-2 cursor-pointer">
           <IconBox
             linkClassName={"text-white font-bold"}
             icon={"icon-apps"}
@@ -44,8 +43,7 @@ export function Menu() {
             hideTitleOnMobile={true}
             title={"Browse All Categories"}
           />
-       
-       
+
           <IconBox
             linkClassName={"text-white"}
             icon={"icon-angle-small-down"}
@@ -54,20 +52,16 @@ export function Menu() {
             hideTitleOnMobile={false}
             titleClassName={"text-meduim text-white"}
           />
-       
-              </div>
-              {/* All Categories Menu*/}
+        </div>
+
+        {/* All Categories Menu*/}
         <div
-         
           onClick={categoryBodyClickHandler}
           className={`${
             showCategoryMenu ? "flex" : "hidden"
           } bg-white w-[500px] h-auto border absolute left-0 top-16 rounded-[10px] border-[#BCE3C9] p-2.5 z-10`}
-             >
-          <div
-           
-            className="flex flex-wrap justify-between gap-y-[15px]"
-             >
+        >
+          <div className="flex flex-wrap justify-between gap-y-[15px]">
             {categoryMenuItems &&
               categoryMenuItems.data.map(
                 (item: EntityType<MenuItemType>, index: number) => {
@@ -89,12 +83,12 @@ export function Menu() {
               )}
           </div>
         </div>
-        </div>
-          
-    
+      </div>
+
+      
 
       <nav id="nav-menu">
-        <ul className="hidden xl:flex flex-col lg:flex-row items-start gap-2.5 justify-center font-bold">
+        <ul className="hidden xl:flex lg:flex-row items-start gap-2.5 justify-center font-bold">
           {mainMenuItems &&
             mainMenuItems.data.map(
               (item: EntityType<MenuItemType>, index: number) => {
@@ -113,7 +107,6 @@ export function Menu() {
                         href={item.attributes.link}
                         className={"flex items-center gap-1"}
                       >
-                        
                         {item.attributes.title}
                       </Link>
                     )}

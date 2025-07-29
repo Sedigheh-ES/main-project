@@ -1,19 +1,20 @@
 import Image from "next/image";
 
 interface Props {
-  src: string;
+  src?: string | null;
   alt: string;
   width: number;
   height: number;
   classname?: string;
 }
-export function ImageView({ src='', alt, width, height, classname = "" }: Props) {
-  const isRemote = src.substring(0,8) === "/uploads";
-    if (src.length > 0) {
+export function ImageView({ src = '', alt, width, height, classname = "" }: Props) {
+  const imagesrc = src ? (src.startsWith('/uploads') ? "https://nest.navaxcollege.com" + src : src) : "";
+  
+    if (imagesrc.length >0) {
       return (
     <Image
       className={classname}
-      src={`${isRemote ? "https://nest.navaxcollege.com" + src : src}`}
+      src={imagesrc}
       alt={alt}
       width={width}
       height={height}

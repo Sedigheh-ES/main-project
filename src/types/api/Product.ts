@@ -28,9 +28,6 @@ export interface ProductType {
   categories?: PopulateType<CategoryType>
 }
 
-export interface Thumbnail {
-  data: Data
-}
 
 export interface Data {
   id: number

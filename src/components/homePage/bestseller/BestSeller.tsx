@@ -2,11 +2,13 @@ import { IconBox, ImageView } from "@/components/common";
 import SimpleProductCard from "@/components/common/product/product-card/SimpleProductCard";
 import SimpleProductSlider from "@/components/common/product/simple-product-slider/SimpleProductSlider";
 import { popularProducts } from "@/mock/popularProducts";
+import { EntityType } from "@/types";
+import { ProductType } from "@/types/api/Product";
 import { Autoplay } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 interface Props {
-    sliderData:Array<any>
+    sliderData:Array<EntityType<ProductType>>
 }
 
 export default function BestSeller({sliderData }: Props) {

@@ -8,8 +8,8 @@ import { ProductType } from "@/types/api/Product";
 
 
 interface Props { 
-  sliderData: Array<EntityType<ProductType>>,
-  nextEl?: string,
+  sliderData: Array<EntityType<ProductType>>;
+  nextEl?: string;
   prevEl?:string
 }
 

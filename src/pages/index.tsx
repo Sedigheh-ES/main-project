@@ -19,17 +19,24 @@ import { useQuery } from "@tanstack/react-query";
 import { ApiResponseType } from "@/types";
 import { ProductType } from "@/types/api/Product";
 
-interface Props{
-data:{}
-}
-export default function Home({ data }: Props) {
+
+export default function Home() {
+
 const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
     queryKey: [getAllProductsApiCall.name,'popular_product'],
-    queryFn: () => getAllProductsApiCall({ populate: ["categries", "thumbnail"], filters: {is_popular: true }})
+    queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: {is_popular: true }})
   });
-  // getAllProductsApiCall({populate:['categries','thumbnail'],filters:{is_popular:true}}).then((data) => {
-  //   console.log("Data Data",data);
-  // })
+  
+  const { data:popularFruitProductsData } = useQuery<ApiResponseType<ProductType>>({ 
+    queryKey: [getAllProductsApiCall.name,'popular_fruit'],
+  queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular_fruit: { $eq: true } } })
+  })
+
+  const { data:bestSellerProductsData } = useQuery<ApiResponseType<ProductType>>({ 
+    queryKey: [getAllProductsApiCall.name,'best_seller'],
+  queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_best_seller: { $eq: true } } })
+  })
+  
   return (
     <>
       <Section>
@@ -58,7 +65,7 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
         {popularProductsData && <SimpleProductSlider  nextEl={".swiper-nav-right"} prevEl={".swiper-nav-left"} sliderData={popularProductsData.data} />}
       </Section>
 
-      {/* <Section>
+      <Section>
         <div className="flex justify-between mb-[50px]">
           <h2 className="text-5xl text-[#253D4E]">Popular Fruits</h2>
           <div className="flex items-center gap-3">
@@ -66,8 +73,10 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
             <i className="swiper-nav-right2 icon-angle-small-right cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-[#3BB77E] hover:text-white text-[24px]"></i>
           </div>
           </div>
-        <SimpleProductSlider sliderData={popularFruits} nextEl={".swiper-nav-right2"} prevEl={".swiper-nav-left2"} />
-      </Section>
+{     popularFruitProductsData &&   <SimpleProductSlider sliderData={popularFruitProductsData?.data} nextEl={".swiper-nav-right2"} prevEl={".swiper-nav-left2"} />
+}      </Section>
+
+      
 
       <Section>
         <div className="flex justify-between mb-[50px]">
@@ -81,7 +90,9 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
               <IconBox icon={"icon-arrow-small-right "} size={24} />
             </Link>
           </div>
-          <BestSeller sliderData={bestseller} />
+          {bestSellerProductsData && 
+           <div className="flex-grow"> < BestSeller sliderData={bestSellerProductsData?.data} /></div>}
+       
         </div>
 
       </Section>
@@ -97,9 +108,9 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
         <DealsOftheDaySlider sliderData={DealsOfTheDaysMock} />
       </Section>
 
-      <Section>
+      {/* <Section>
         <BottomSlider />
-      </Section> */}
+      </Section>  */}
 
     </>
   );

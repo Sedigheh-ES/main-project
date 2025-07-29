@@ -21,7 +21,7 @@ export function Header() {
     setShowCategoryMenu((prevState) => !prevState);
   };
 
-  const categoryBodyClickHandler = () => {
+  const categoryBodyClickHandler = (e) => {
     e.stopPropagation();
     setShowCategoryMenu((prevState) => !prevState);
   };
@@ -92,7 +92,7 @@ export function Header() {
 
       {/* Mobile Menu */}
       <div className="border-gray-200 border-y h-auto ">
-        <div  onClick={menuBodyClickHandler} className={`${showMobileMenu? 'left-0 fixed overflow-y-scroll' :'-left-[100%] absolute' }  container transition-all w-4/5 rounded-[24px] lg:rounded-[0px] lg:w-auto flex  top-0 bottom-0  lg:static flex-col lg:hidden justify-start lg:justify-between items-start pt-[16px] pl-[24px] lg:py-[13px] lg:items-center h-[100vh] bg-white lg:h-[70px] mobile-menu z-50`}>
+        <div  onClick={menuBodyClickHandler} className={`${showMobileMenu? 'left-0 fixed overflow-y-scroll' :'-left-[100%] absolute' }  container  transition-all w-4/5 rounded-tr-[24px] lg:rounded-[0px] lg:w-auto flex  top-0 bottom-0  lg:static flex-col lg:hidden justify-start lg:justify-between items-start pt-[16px] pl-[24px] lg:py-[13px] lg:items-center h-[100vh] bg-white lg:h-[70px] mobile-menu z-50 border-[1px] border-[#FFFFFF]`}>
           <div className={"relative"} onClick={categoryMenuClickHandler}>
             <div className="flex lg:hidden relative w-[250px] h-[50px] bg-[#3BB77E] rounded-[5px] border border-gray-200  justify-center items-center gap-2 cursor-pointer">
                
@@ -119,7 +119,7 @@ export function Header() {
               onClick={categoryBodyClickHandler}
               className={`${
                 showCategoryMenu ? "flex" : "hidden"
-              } bg-white w-[400px] h-auto border absolute left-0 top-12 rounded-[10px] border-[#BCE3C9] p-2.5 z-10`}
+              } bg-white w-[400px] h-auto lg:absolute left-0 top-12 rounded-[10px]  p-2.5 z-10`}
             >
               <div className="flex flex-wrap justify-between gap-y-[15px]">
                 {categoryMenuItems &&

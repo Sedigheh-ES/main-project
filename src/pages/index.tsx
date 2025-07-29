@@ -14,11 +14,21 @@ import DealsOftheDaySlider from "@/components/homePage/deals-of-the-day/DealsOfT
 import BottomSlider from "@/components/homePage/bottom-slider/BottomSlider";
 import { RecentlyAddedMock } from "@/mock/recentlyAddedMock";
 import { bestseller } from "@/mock/bestseller";
+import { getAllProductsApiCall } from "@/api/Product";
+import { useQuery } from "@tanstack/react-query";
+import { ApiResponseType } from "@/types";
 
 interface Props{
 data:{}
 }
-export default function Home({data}:Props) {
+export default function Home({ data }: Props) {
+const { data: popularProductsData } = useQuery({
+    queryKey: [getAllProductsApiCall.name,'popular_product'],
+    queryFn: () => getAllProductsApiCall({ populate: ["categries", "thumbnail"], filters: {is_popular: true }})
+  });
+  // getAllProductsApiCall({populate:['categries','thumbnail'],filters:{is_popular:true}}).then((data) => {
+  //   console.log("Data Data",data);
+  // })
   return (
     <>
       <Section>

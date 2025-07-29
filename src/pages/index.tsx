@@ -17,12 +17,13 @@ import { bestseller } from "@/mock/bestseller";
 import { getAllProductsApiCall } from "@/api/Product";
 import { useQuery } from "@tanstack/react-query";
 import { ApiResponseType } from "@/types";
+import { ProductType } from "@/types/api/Product";
 
 interface Props{
 data:{}
 }
 export default function Home({ data }: Props) {
-const { data: popularProductsData } = useQuery({
+const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
     queryKey: [getAllProductsApiCall.name,'popular_product'],
     queryFn: () => getAllProductsApiCall({ populate: ["categries", "thumbnail"], filters: {is_popular: true }})
   });
@@ -54,10 +55,10 @@ const { data: popularProductsData } = useQuery({
             <i className="swiper-nav-right icon-angle-small-right cursor-pointer bg-gray-100 p-2 rounded-full text-gray-500 hover:bg-[#3BB77E] hover:text-white text-[24px]"></i>
           </div>
           </div>
-        <SimpleProductSlider  nextEl={".swiper-nav-right"} prevEl={".swiper-nav-left"} sliderData={popularProducts} />
+        {popularProductsData && <SimpleProductSlider  nextEl={".swiper-nav-right"} prevEl={".swiper-nav-left"} sliderData={popularProductsData.data} />}
       </Section>
 
-      <Section>
+      {/* <Section>
         <div className="flex justify-between mb-[50px]">
           <h2 className="text-5xl text-[#253D4E]">Popular Fruits</h2>
           <div className="flex items-center gap-3">
@@ -98,7 +99,7 @@ const { data: popularProductsData } = useQuery({
 
       <Section>
         <BottomSlider />
-      </Section>
+      </Section> */}
 
     </>
   );

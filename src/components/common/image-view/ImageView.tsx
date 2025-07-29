@@ -7,8 +7,8 @@ interface Props {
   height: number;
   classname?: string;
 }
-export function ImageView({ src, alt, width, height, classname = "" }: Props) {
-  const isRemote = src.substring(0, 8) === "/uploads";
+export function ImageView({ src='', alt, width, height, classname = "" }: Props) {
+  const isRemote = src.substring(0,8) === "/uploads";
     if (src.length > 0) {
       return (
     <Image

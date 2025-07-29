@@ -14,15 +14,15 @@ export interface ProductType {
   is_popular: boolean
   is_top_selling: boolean
   is_trending: boolean
-  SKU?: string
-  label?: string
+  SKU: string | null
+  label: string | null
   unit: string
-  total?: number
-  sold?: number
+  total: number | null
+  sold: number | null
   is_popular_fruit?: boolean
   is_best_seller?: boolean
     thumbnail?: {
-      data:EntityType<ImageType>
+      data?:EntityType<ImageType>
   }
   gallery?: PopulateType<ImageType>
   categories?: PopulateType<CategoryType>

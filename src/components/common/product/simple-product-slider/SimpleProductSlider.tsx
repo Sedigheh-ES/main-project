@@ -3,10 +3,12 @@ import { popularProducts } from "@/mock/popularProducts";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SimpleProductCard from "../product-card/SimpleProductCard";
+import { EntityType } from "@/types";
+import { ProductType } from "@/types/api/Product";
 
 
 interface Props { 
-  sliderData: Array<any>,
+  sliderData: Array<EntityType<ProductType>>,
   nextEl?: string,
   prevEl?:string
 }

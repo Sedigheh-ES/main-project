@@ -11,7 +11,8 @@ interface Props {
     sliderData:Array<EntityType<ProductType>>
 }
 
-export default function BestSeller({sliderData }: Props) {
+export default function BestSeller({ sliderData }: Props) {
+    
     return (
         <Swiper
             spaceBetween={20}

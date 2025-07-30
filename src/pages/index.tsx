@@ -108,9 +108,9 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
         <DealsOftheDaySlider sliderData={DealsOfTheDaysMock} />
       </Section>
 
-      {/* <Section>
+      <Section>
         <BottomSlider />
-      </Section>  */}
+      </Section> 
 
     </>
   );

@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function FeaturedCategories() {
 
   const { data } = useQuery<ApiResponseType<CategoryType>>({ queryKey: [getFeaturedCategory.name], queryFn: () => getFeaturedCategory() });
-  console.log(data);
+ 
   return (
     <div className="flex flex-wrap justify-between gap-[24px] mt-[50px] ">
       {

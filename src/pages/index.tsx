@@ -15,16 +15,19 @@ import BottomSlider from "@/components/homePage/bottom-slider/BottomSlider";
 import { RecentlyAddedMock } from "@/mock/recentlyAddedMock";
 import { bestseller } from "@/mock/bestseller";
 import { getAllProductsApiCall } from "@/api/Product";
-import { useQuery } from "@tanstack/react-query";
-import { ApiResponseType } from "@/types";
+import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
+import { ApiResponseType, EntityType } from "@/types";
 import { ProductType } from "@/types/api/Product";
+import { getMenuAPiCall } from "@/api/Menu";
 
 
-export default function Home() {
+export default function Home(props) {
 
 const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
     queryKey: [getAllProductsApiCall.name,'popular_product'],
-    queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: {is_popular: true }})
+  queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular: true } }),
+  initialData: props.productData
+
   });
   
   const { data:popularFruitProductsData } = useQuery<ApiResponseType<ProductType>>({ 
@@ -114,4 +117,17 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
 
     </>
   );
+}
+
+export async function getServerSideProps() {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: [getMenuAPiCall.name],
+    queryFn: getMenuAPiCall
+  })
+
+
+  const productsData = await getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular: true } });
+  return { props: { productsData, dehydratedState: dehydrate(queryClient), } }
 }

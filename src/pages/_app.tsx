@@ -7,28 +7,36 @@ import { Swiper } from "swiper/react";
 import 'swiper/css';
 import 'swiper/css/autoplay';
 import 'react-toastify/ReactToastify.css';
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { HydrationBoundary, QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ToastContainer } from "react-toastify";
+import { useState } from "react";
+
 
 
 export default function App({ Component, pageProps }: AppProps) {
-  const queryClient = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-        refetchIntervalInBackground: false,
-        retry: 0
-
-      }
+  const [queryClient] =
+    useState(() =>
+    new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchIntervalInBackground: false,
+      retry: 0,
+      staleTime: 60 * 1000
     }
-  });
+  }
+  })
+    
+ )
+ 
   return (
     <QueryClientProvider client={queryClient}>
+       <HydrationBoundary state={pageProps.dehydratedState}>
       <Layouts>
         <Component {...pageProps} />
         <ToastContainer autoClose={false} hideProgressBar={false} closeOnClick={false} draggable={false} theme={"light"}  />
-
-      </Layouts>
+        </Layouts>
+        </HydrationBoundary>
     </QueryClientProvider>
   );
 }

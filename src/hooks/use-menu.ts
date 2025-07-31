@@ -10,14 +10,14 @@ export function useMenu({ position }: Props) {
     queryKey: [getMenuAPiCall.name],
     queryFn: () => getMenuAPiCall(),
   });
-  console.log("Menu Data: ", menuData);
+  
 
   let MenuItems: null | PopulateType<MenuItemType> = null;
   if (menuData) {
     const findMenu = menuData.filter(
       (item: EntityType<MenuType>) => item.attributes?.position === position
     );
-    console.log("Main menu items:", findMenu);
+   
 
     if (findMenu.length > 0) {
       MenuItems = findMenu[0].attributes.menu_items;

@@ -13,7 +13,7 @@ interface Props {
     prevEl?: string
 }
 
-export default function BottomSlider({sliderData}: Props) {
+export default function BottomSlider() {
      const { data:topRateData,refetch } = useQuery<ApiResponseType<ProductType>>({ 
     queryKey: [getAllProductsApiCall.name,'top_rate'],
          queryFn: () => getAllProductsApiCall(

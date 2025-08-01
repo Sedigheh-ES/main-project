@@ -19,6 +19,7 @@ import { QueryClient, dehydrate, useQuery } from "@tanstack/react-query";
 import { ApiResponseType, EntityType } from "@/types";
 import { ProductType } from "@/types/api/Product";
 import { getMenuAPiCall } from "@/api/Menu";
+import { TopRatedMock } from "@/mock/TopRatedMock";
 
 
 export default function Home() {

@@ -29,7 +29,8 @@ const { data: popularProductsData } = useQuery<ApiResponseType<ProductType>>({
   queryFn: () => getAllProductsApiCall({ populate: ["categories", "thumbnail"], filters: { is_popular: true } }),
   
 
-  });
+});
+  
   
   const { data:popularFruitProductsData } = useQuery<ApiResponseType<ProductType>>({ 
     queryKey: [getAllProductsApiCall.name,'popular_fruit'],

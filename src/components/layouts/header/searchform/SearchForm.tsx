@@ -3,9 +3,12 @@ import { getAllProductsApiCall } from "@/api/Product";
 import { IconBox } from "@/components/common";
 import { useForm } from "react-hook-form";
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { EntityType } from "@/types";
 import { ProductType } from "@/types/api/Product";
+import useDebounce from "@/hooks/use-debounce";
+
+
 
 
 interface Props{
@@ -23,14 +26,22 @@ interface FiltersData{
 export function SearchForm({ inputClassName = '' }: Props) {
     
     const [resultData, setResultData] = useState<Array<EntityType<ProductType>>>([]);
-    const { register, handleSubmit } = useForm<FormInput>();
+    const { register, handleSubmit,watch } = useForm<FormInput>();
 
     const mutation = useMutation({ mutationFn: (data:FiltersData) => getAllProductsApiCall({ filters: data }) });
 
+ const search_text = watch("search_text");
+    useEffect(() => {    
+        if (search_text && search_text.length > 1) {
+            delay();
+        } else {
+            setResultData([]);
+        }
+    }, [search_text]);
+
+  
     
-    const onSubmit = (data: FormInput) => {
-        
-        console.log(data);
+    const onSubmit = (data: FormInput) => {   
         mutation.mutate({
             title: {
                 '$containsi': data.search_text
@@ -44,7 +55,10 @@ export function SearchForm({ inputClassName = '' }: Props) {
             
         )
     }
-    console.log('result data:',resultData);
+
+ const delay = useDebounce(handleSubmit(onSubmit), 1000);
+
+  
     return (
         <div className="relative border-2 border-[#3BB77E] rounded-lg max-w-[700px] w-full mx-[15px] px-[15px] hidden lg:inline-block">
             <form name="search-form" onSubmit={handleSubmit(onSubmit)} action="#" className="flex items-center">

@@ -5,6 +5,8 @@ import { Menu } from "./menu";
 import { useEffect, useState } from "react";
 import { useMenu } from "@/hooks/use-menu";
 import { EntityType, MenuItemType } from "@/types";
+import Modal from "@/components/common/ui/modal/Modal";
+import LoginModal from "@/components/common/auth/LoginModal";
 
 export function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -47,6 +49,8 @@ export function Header() {
 
     
     <header className="flex flex-col justify-center items-center mb-[33px]">
+   
+ 
       <div className=" container flex items-center justify-between py-4 border-b border-b-[#E5E5E5]">
         <Logo />
 

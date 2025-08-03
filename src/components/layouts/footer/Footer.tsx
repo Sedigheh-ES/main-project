@@ -1,12 +1,15 @@
 
 import { IconBox, ImageView, Logo } from '@/components/common';
+import LoginModal from '@/components/common/auth/LoginModal';
 import Link from 'next/link';
 import React from 'react';
 
 
 export function Footer() {
   return (
-    <footer className='container mb-[68px]'>
+    <footer className='container mb-[68px] relative'>
+      <LoginModal />
+      
       <div className='mb-[68px]'>
 
         <div className="rounded-[6px] p-10 md:rounded-[14px] lg:rounded-[30px] bg-hero-pattern bg-[rgba(59,128,126,.2)] bg-opacity-20 bg-cover bg-top bg-no-repeat flex justify-between items-center my-[38px] relative">

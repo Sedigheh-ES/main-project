@@ -9,7 +9,7 @@ import React, { useContext, useState } from 'react';
 
 export function Footer() {
   
-  const { currentModal,openModal,closeModal } = useModal();
+  // const { currentModal,openModal,closeModal } = useModal();
 
   // const closeHandler = () => {
   //   setShowModal(null);
@@ -17,10 +17,10 @@ export function Footer() {
 
   return (
     <footer className='container mb-[68px] relative' id={"footer"}>
-      {currentModal === 'login' && <LoginModal onClose={closeModal}  />}
-     {currentModal === 'register' && <RegisterModal onClose={closeModal}/>}
+      {/* {currentModal === 'login' && <LoginModal onClose={closeModal}  />}
+     {currentModal === 'register' && <RegisterModal onClose={closeModal}/>} */}
       
-      <div onClick={()=>openModal('login')} className='mb-[68px]'>
+      <div  className='mb-[68px]'>
 
         <div className="rounded-[6px] p-10 md:rounded-[14px] lg:rounded-[30px] bg-hero-pattern bg-[rgba(59,128,126,.2)] bg-opacity-20 bg-cover bg-top bg-no-repeat flex justify-between items-center my-[38px] relative">
           <div className="min-h-[160px] pl-3 pt-3 sm:pl-4 sm:pt4 md:pl-6 md:pt-6 lg:pl-10 lg:py-10 xl:pl-14 xl:py-14 2xl:py-[72px] 2xl:pl-[72px]">
@@ -36,7 +36,7 @@ export function Footer() {
       <div className='flex flex-col md:flex-row justify-between gap-4.5'>
         <div className='max-w-[346px]'>
           <Logo />
-          <div className='font-medium font-quickSand mt-4 lg:mt-6' onClick={()=>{setShowModal('register')}}>Pellentesque posuere orci lobortis</div>
+          <div className='font-medium font-quickSand mt-4 lg:mt-6' >Pellentesque posuere orci lobortis</div>
 
           <div className='flex items-start gap-2.5 mt-4 lg:mt-6' >
             <IconBox icon={'icon-marker-brand'} size={16} />

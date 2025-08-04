@@ -7,6 +7,8 @@ import { useMenu } from "@/hooks/use-menu";
 import { EntityType, MenuItemType } from "@/types";
 import Modal from "@/components/common/ui/modal/Modal";
 import LoginModal from "@/components/common/auth/LoginModal";
+import { useModal } from "@/store/ModalContext";
+import RegisterModal from "@/components/common/auth/RegisterModal";
 
 export function Header() {
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -14,6 +16,8 @@ export function Header() {
 
   const { data: mainMenuItems } = useMenu({ position: "main_menu" });
   const { data: categoryMenuItems } = useMenu({ position: "brows-category" });
+
+    const { currentModal,openModal,closeModal } = useModal();
 
   const menuBodyClickHandler = (e) => {
      e.stopPropagation();
@@ -49,6 +53,8 @@ export function Header() {
 
     
     <header className="flex flex-col justify-center items-center mb-[33px]">
+       {currentModal === 'login' && <LoginModal onClose={closeModal}  />}
+      {currentModal === 'register' && <RegisterModal onClose={closeModal}/>}
    
  
       <div className=" container flex items-center justify-between py-4 border-b border-b-[#E5E5E5]">
@@ -67,7 +73,7 @@ export function Header() {
         </button>
 
         <ul className="hidden lg:flex gap-5 cursor-pointer">
-          <li className="flex gap-2 cursor-pointer ">
+          <li className="flex gap-2 cursor-pointer "  onClick={()=>openModal('login')}>
             <IconBox
               linkClassName={"flex items-center"}
               icon={"icon-user"}
@@ -76,6 +82,7 @@ export function Header() {
               link={"#"}
               hideTitleOnMobile={true}
               titleClassName={"text-gray-500"}
+            
             />
           </li>
 

@@ -20,22 +20,22 @@ export default function BestSeller({ sliderData }: Props) {
             autoplay={true}
             modules={[Autoplay]}
 
-            breakpoints={
-                {
-                    768: {
-                        slidesPerView: 2,
-                        spaceBetween: 18
-                    },
-                    1024: {
-                        slidesPerView: 3,
-                        spaceBetween: 22
-                    },
-                    1280: {
-                        slidesPerView: 4,
-                        spaceBetween: 24
-                    }
-                }
-            }
+           breakpoints={
+        {
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 18
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 22
+          },
+          1280: {
+            slidesPerView: 5,
+            spaceBetween: 24
+          }
+        }
+      }
 
         >
             {

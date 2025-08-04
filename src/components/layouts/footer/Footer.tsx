@@ -7,9 +7,14 @@ import React, { useState } from 'react';
 
 export function Footer() {
   const [showModal, setShowModal] = useState(false);
+
+  const closeHandler = () => {
+    setShowModal(false);
+  }
+  
   return (
     <footer className='container mb-[68px] relative'>
-     {showModal && <LoginModal />}
+     {showModal && <LoginModal  onClose={closeHandler}/>}
       
       <div onClick={()=>setShowModal(true)} className='mb-[68px]'>
 

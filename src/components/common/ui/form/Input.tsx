@@ -2,7 +2,7 @@ import { useId } from "react";
 import {  UseFormRegisterReturn,FieldErrors } from "react-hook-form";
 import ErrorMessage from "./ErrorMessage";
 
-interface Props
+interface Props extends React.HtmlHTMLAttributes<HTMLInputElement>
 { 
     type?: "text" | "password" | "email" | "tel" | "number";
     label?: string;
@@ -12,7 +12,7 @@ interface Props
     
 }
 
-export default function Input({ type = "text", label, placeholder = '', register , errors}: Props) {
+export default function Input({ type = "text", label, placeholder = '', register , errors, ...rest}: Props) {
     const id = useId();
     const name = register.name;
     let hasEerror = false;
@@ -23,7 +23,7 @@ export default function Input({ type = "text", label, placeholder = '', register
         <div className="flex flex-col">
              <div className="flex flex-row justify-center items-center">
             {label && <label htmlFor={id}>{label}:</label>}
-            <input id={id} type={type} {...register} placeholder={placeholder} />
+            <input  id={id} type={type} {...register}  {...rest}/>
             </div>
             <div className="text-red-500">
                 <ErrorMessage name={name} errors={errors} />

@@ -2,6 +2,8 @@ import React from 'react'
 import Modal from '../ui/modal/Modal'
 import { useForm } from 'react-hook-form'
 import Input from '../ui/form/Input';
+import { useMutation } from '@tanstack/react-query';
+import { RegisterApiCall } from '@/api/Auth';
 
 interface Props{
     onClose:()=>void
@@ -14,11 +16,19 @@ interface FormData{
 }
 
 
+
 export default function RegisterModal({ onClose }: Props) {   
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
+    const mutate=useMutation({mutationFn:RegisterApiCall})
+
     const onSubmit = (data:FormData) => {
         console.log(data);
+        mutate.mutate(data, {
+            onSuccess: (response) => {
+                console.log('response', response);
+                window.localStorage.setItem('token',response.jwt)
+        }})
         
     }
 

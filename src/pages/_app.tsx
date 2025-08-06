@@ -11,6 +11,7 @@ import { HydrationBoundary, QueryClient, QueryClientProvider } from "@tanstack/r
 import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { ModalContextProvider } from "@/store/ModalContext";
+import { AuthContextProvider } from "@/store/AuthContext";
 
 
 
@@ -33,6 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <HydrationBoundary state={pageProps.dehydratedState}>
+        <AuthContextProvider>
         <ModalContextProvider>
         <div id={"portal"}></div>
       <Layouts>
@@ -40,6 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <ToastContainer autoClose={false} hideProgressBar={false} closeOnClick={false} draggable={false} theme={"light"}  />
           </Layouts>
           </ModalContextProvider>
+          </AuthContextProvider>
       </HydrationBoundary>
       
     </QueryClientProvider>

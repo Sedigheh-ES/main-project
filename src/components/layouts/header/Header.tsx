@@ -9,8 +9,11 @@ import Modal from "@/components/common/ui/modal/Modal";
 import LoginModal from "@/components/common/auth/LoginModal";
 import { useModal } from "@/store/ModalContext";
 import RegisterModal from "@/components/common/auth/RegisterModal";
+import { useUser } from "@/store/AuthContext";
+import { toast } from "react-toastify";
 
 export function Header() {
+  const {isLogin,logout}= useUser();
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState<boolean>(false);
 
@@ -49,6 +52,16 @@ export function Header() {
     setShowMobileMenu((prevState) => !prevState);
   };
 
+  const accountHandler = () => {
+    if (isLogin) {
+      logout();
+      toast.success('با موفقیت خارج شدید');
+    } else {
+      openModal('login')
+    }
+
+  }
+
   return (
 
     
@@ -73,12 +86,12 @@ export function Header() {
         </button>
 
         <ul className="hidden lg:flex gap-5 cursor-pointer">
-          <li className="flex gap-2 cursor-pointer "  onClick={()=>openModal('login')}>
+          <li className="flex gap-2 cursor-pointer "  onClick={()=>accountHandler()}>
             <IconBox
               linkClassName={"flex items-center"}
               icon={"icon-user"}
               size={24}
-              title={"Account"}
+              title={`${isLogin ? 'Logout':'Login/Register'}`}
               link={"#"}
               hideTitleOnMobile={true}
               titleClassName={"text-gray-500"}

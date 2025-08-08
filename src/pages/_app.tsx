@@ -12,6 +12,7 @@ import { ToastContainer } from "react-toastify";
 import { useState } from "react";
 import { ModalContextProvider } from "@/store/ModalContext";
 import { AuthContextProvider } from "@/store/AuthContext";
+import { BasketContextProvider } from "@/store/BasketContext";
 
 
 
@@ -33,6 +34,7 @@ export default function App({ Component, pageProps }: AppProps) {
  
   return (
     <QueryClientProvider client={queryClient}>
+      <BasketContextProvider>
       <HydrationBoundary state={pageProps.dehydratedState}>
         <AuthContextProvider>
         <ModalContextProvider>
@@ -44,7 +46,7 @@ export default function App({ Component, pageProps }: AppProps) {
           </ModalContextProvider>
           </AuthContextProvider>
       </HydrationBoundary>
-      
+      </BasketContextProvider>
     </QueryClientProvider>
   );
 }

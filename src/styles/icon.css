@@ -341,7 +341,7 @@
 }
 .icon-angle-small-down:before {
   content: '\e906';
-  color: #fff;
+  color: #000;
 }
 .icon-angle-small-left:before {
   content: '\e907';

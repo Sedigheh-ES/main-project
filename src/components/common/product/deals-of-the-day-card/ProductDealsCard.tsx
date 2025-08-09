@@ -1,5 +1,6 @@
 import { ImageView } from "../../image-view"
 import { IconBox } from "../../ui"
+import ProductCardButton from "../product-card/ProductCardButton"
 
 interface Props {
   data: {
@@ -64,7 +65,7 @@ export default function ProductDealsCard({ data }: Props) {
 
           <div className="flex justify-between">
             <div><span className="text-[#3BB77E] text-[20px]" >$200 </span> <span className="text-[#7E7E7E] text-xs line-through" >$200</span></div>
-            <div className="bg-[#DEF9EC] text-[#3BB77E] text-sm flex items-center justify-center px-3 py-2 gap-0.5">Add  <IconBox icon={"icon-add text-[12px]"} size={16} /> </div>
+ <ProductCardButton productData={data}/>
           </div>
 
         </div>

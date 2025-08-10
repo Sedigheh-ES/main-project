@@ -10,24 +10,23 @@ interface Props {
 export default function ProductCardButton({ productData }: Props) {
     const basket = useContext(BasketContext);
     const currentProductBasket = basket.getItem(productData.id);
-   
+
 
     return (
         <div className="flex justify-center items-center">
             {
                 currentProductBasket ?
-                    <div className="input-product__container border-[1px] w-[80px] flex justify-between  items-center pt-2 rounded-[4px] border-green-300 text-green-300 h-[30px] p-[3px]">       
-                        <input type='number' value="1"  className='h-[24px] w-[50px] bordere-0 focus:outline-none text-center'/>    
+                    <div className="input-product__container border-[1px] w-[80px] flex justify-between  items-center pt-2 rounded-[4px] border-green-300 text-green-300 h-[30px] p-[3px]">
                         <div className="flex flex-col justify-between">
-                            <div className='cursor-pointer' onClick={()=>{basket.increaseItem(productData.id)}}>
-                            <IconBox icon={'up icon-angle-small-up'} size={10}/>
+                            <div className='cursor-pointer' onClick={() => { basket.increaseItem(productData.id) }}>
+                                <IconBox icon={'up icon-angle-small-up'} size={10} />
                             </div>
 
-                            <div className='cursor-pointer' onClick={()=>basket.decreaseItem(productData.id)}>
-                         <IconBox icon={'down icon-angle-small-down'} size={10}/>
+                            <div className='cursor-pointer' onClick={() => basket.decreaseItem(productData.id)}>
+                                <IconBox icon={'down icon-angle-small-down'} size={10} />
                             </div>
                         </div>
-                          {currentProductBasket.quantity}
+                        {currentProductBasket.quantity}
                     </div>
                     :
                     <button

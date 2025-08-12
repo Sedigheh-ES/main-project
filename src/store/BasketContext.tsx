@@ -52,7 +52,6 @@ export const BasketContextProvider = (props: Props) => {
 
 
     const increaseItemHadler = (productId: number) => {
-
         const newBasket = basketItems.map((item) => {
             if (item.productId === productId)
                 return { ...item, quantity: item.quantity + 1 };
@@ -74,7 +73,6 @@ export const BasketContextProvider = (props: Props) => {
             })
             setBasketItems(newBasket);
         }
-
     }
 
 
@@ -87,7 +85,6 @@ export const BasketContextProvider = (props: Props) => {
 
     const getItemHandler = (productId: number): ProductItem | undefined => {
         return basketItems.find((item) => item.productId === productId);
-
     }
     return (
         <BasketContext.Provider value={{ basketItems: basketItems, addItem: addItemHandler, increaseItem: increaseItemHadler, decreaseItem: decreaseItemHandler, deleteItem: deleteItemHandler, getItem: getItemHandler }}>

@@ -2,7 +2,7 @@ import { IconBox, ImageView, Logo } from "@/components/common";
 import { SearchForm } from "./searchform";
 import Link from "next/link";
 import { Menu } from "./menu";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useMenu } from "@/hooks/use-menu";
 import { EntityType, MenuItemType } from "@/types";
 import Modal from "@/components/common/ui/modal/Modal";
@@ -11,8 +11,13 @@ import { useModal } from "@/store/ModalContext";
 import RegisterModal from "@/components/common/auth/RegisterModal";
 import { useUser } from "@/store/AuthContext";
 import { toast } from "react-toastify";
+import useBasket from "@/hooks/use-basket";
+import { BasketContext } from "@/store/BasketContext";
 
 export function Header() {
+  useBasket();
+  const basket = useContext(BasketContext);;
+  
   const {isLogin,logout}= useUser();
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState<boolean>(false);

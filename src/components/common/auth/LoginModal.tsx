@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 import { LoginApiCall } from '@/api/Auth';
 import { useUser } from '@/store/AuthContext';
 import { toast } from 'react-toastify';
+import useBasket from '@/hooks/use-basket';
 
 interface Props{
     onClose: () => void;
@@ -21,6 +22,7 @@ interface FormData{
 export default function LoginModal({ onClose }: Props) {
     const { openModal , closeModal} = useModal();
     const { login } = useUser();
+    const { uuid2user } = useBasket();
      const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
     const mutate=useMutation({mutationFn:LoginApiCall})
@@ -33,6 +35,7 @@ export default function LoginModal({ onClose }: Props) {
                 login(response.jwt, response.user);
                 toast.success('شما با موفقیت لاگین شدید');
                 closeModal();
+                uuid2user();
         }})
         
     }

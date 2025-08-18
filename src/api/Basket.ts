@@ -1,4 +1,4 @@
-import { ApiResponseSingleType} from "@/types";
+import { ApiResponseSingleType, ApiResponseType} from "@/types";
 import apiClient from "./config/ApiClient";
 import { BasketType } from "@/types/api/Basket";
 
@@ -50,3 +50,6 @@ export async function UpdateBasketApiCall(data: UpdatebasketData) {
     });
 }
 
+export async function UUID2UserApiCall(uuid:string):Promise<ApiResponseSingleType<BasketType>> {
+    return await apiClient.put('/basket2user/' + uuid);
+}

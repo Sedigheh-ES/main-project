@@ -15,8 +15,10 @@ import useBasket from "@/hooks/use-basket";
 import { BasketContext } from "@/store/BasketContext";
 
 export function Header() {
-  useBasket();
-  const basket = useContext(BasketContext);;
+  const { basketItems } = useBasket();
+  console.log('basketItems:', basketItems);
+  
+  // const basket = useContext(BasketContext);;
   
   const {isLogin,logout}= useUser();
   const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
@@ -112,7 +114,7 @@ export function Header() {
               title={"Card"}
               link={"#"}
               hideTitleOnMobile={true}
-              badge={2}
+              badge={basketItems.length}
               titleClassName={"text-gray-500"}
             />
           </li>

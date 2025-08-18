@@ -1,7 +1,15 @@
+import { ProductType } from "./Product";
+import { EntityType } from "./Response";
 
-export interface Attributes {
+export interface BasketType {
   uuid: any
-  basket_items: any[]
+  basket_items: Array<BasketItemType>
 }
 
-export interface Meta {}
+ interface BasketItemType{
+  id: number;
+  quantity: number;
+  product: {
+    data:EntityType<ProductType>
+  }
+}

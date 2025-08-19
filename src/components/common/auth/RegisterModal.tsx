@@ -49,7 +49,7 @@ export default function RegisterModal({ onClose }: Props) {
     return (
 
         <Modal title={'Register'} closeModal={onClose}>
-            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center justify-around'>
+            <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center justify-between'>
                 <Input register={register('username', { required: "enter username" })} type={'text'} errors={errors} label={'username'} {...{placeholder:"enter username"}} />
                 <Input register={register('email', {required:"enter your email address", minLength:{value:3,message:"min 3 character"}})}  type={'email'} errors={errors}  label={'Email'} {...{placeholder:"enter email"}} />
                 <Input register={register('password', {required:"enter your password", minLength:{value:3,message:"min 3 character"}})} type={'password'} errors={errors} label={'password'} {...{placeholder:"enter password"}}/>

@@ -20,9 +20,9 @@ export default function Input({ type = "text", label, placeholder = '', register
         hasEerror = false;
     }
     return (
-        <div className="flex flex-col gap-1 mt-5 items-center">
+        <div className="flex flex-col gap-1 mt-6 items-center">
              <div className="flex flex-row justify-center items-center gap-1 ">
-            {label && <label htmlFor={id} className="text-2xl capitalize text-gray-800 align-baseline ">{label}:</label>}
+            {label && <label htmlFor={id} className="text-2xl capitalize text-gray-800 w-[120px] text-right">{label}:</label>}
                 <input id={id} type={type} {...register}  {...rest}
                     className="border-2 border-gray-300 px-3 py-2 bg-white rounded-xl" />
             </div> 

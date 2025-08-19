@@ -43,17 +43,23 @@ export default function LoginModal({ onClose }: Props) {
     
     return (
 
-        <Modal title={'Login'} closeModal={onClose}>
-         <form onSubmit={handleSubmit(onSubmit)}>
-                <Input register={register('identifier', { required: "enter username" })} type={'text'} errors={errors} label={'username'} {...{placeholder:"enter username"}} />
+        <Modal title={'Login'} closeModal={onClose} >
+         <form onSubmit={handleSubmit(onSubmit)} className='flex flex-col items-center'>
+                <Input register={register('identifier', { required: "enter username" })}
+                    type={'text'} errors={errors}
+                    label={'username'}
+                    {...{ placeholder: "enter username" }}
+                    className='text-2xl'
+                
+                />
                 <Input register={register('password', {required:"enter your password", minLength:{value:3,message:"min 3 character"}})} type={'password'} errors={errors} label={'password'} {...{placeholder:"enter password"}}/>
                 
                    
-                <button className={'mt-2 bg-amber-400 px-4 py-2 cursor-pointer'}>
-                    submit
+                <button className={'mt-2 bg-blue-400 px-8 py-4 cursor-pointer text-white text-xl border border-white rounded-2xl hover:border-blue-900 hovere:bg-blue-100  '}>
+                    Login
                 </button>
             </form>
-            <span onClick={()=>openModal('register')}>Goto register modal</span>
+            <span onClick={()=>openModal('register')} className='text-xl cursor-pointer capitalize text-blue-800 hover:text-blue-400 ml-3.5'>You don't have account? register...</span>
         </Modal>
 
 

@@ -95,6 +95,7 @@ export default function useBasket() {
             }})
             } else {
                 window.localStorage.removeItem('uuid');
+                queryClient.invalidateQueries({queryKey:['get-basket']})
             }
             
         }

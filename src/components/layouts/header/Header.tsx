@@ -228,11 +228,11 @@ export function Header() {
         </div>
 
         <ul className="lg:hidden flex gap-5 cursor-pointer w-full justify-end">
-          <li className="flex gap-2 cursor-pointer">
+          <li className="flex gap-2 cursor-pointer" onClick={() => accountHandler()}>
             <IconBox
               icon={"icon-user"}
               size={36}
-              title={"Account"}
+              title={`${isLogin ? 'Logout':'Login/Register'}`}
               link={"#"}
               hideTitleOnMobile={true}
               titleClassName={"text-gray-500"}
